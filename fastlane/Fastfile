@@ -1,0 +1,13 @@
+desc "Create new release"
+lane :release do
+
+set_github_release(
+  api_token: GIT_AUTHORIZATION,
+  repository_name: REPOSITORY_NAME,
+  name: "#{type.capitalize} version v#{version}",
+  tag_name: "v#{version}",
+  description: comments,
+  commitish: "main"
+)
+
+end
